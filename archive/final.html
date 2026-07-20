@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THIS ISN'T REAL</title>
+
+<style>
+
+body{
+margin:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+font-family:"IBM Plex Mono",monospace;
+color:white;
+transition:background 5s;
+}
+
+main{
+text-align:center;
+width:90%;
+max-width:900px;
+}
+
+img{
+width:280px;
+max-width:80%;
+opacity:0;
+transition:2s;
+filter:drop-shadow(0 0 20px rgba(255,255,255,.08));
+}
+
+#text{
+margin-top:40px;
+white-space:pre-wrap;
+line-height:1.8;
+font-size:18px;
+min-height:280px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<img src="../avatar.png" id="avatar">
+
+<div id="text"></div>
+
+</main>
+
+<script>
+
+const avatar=document.getElementById("avatar");
+const text=document.getElementById("text");
+
+const story=`His avatar became the only place where he still existed.
+
+If you look closely at his shirt...
+
+You'll notice the words never stop repeating.
+
+"this isn't real."
+
+Some players say that if you meet him in an empty server...
+
+He won't attack.
+
+He'll just stand there...
+
+...looking at you.
+
+As if he's waiting for someone...
+
+to prove that this isn't real.
+
+No one ever can.`;
+
+setTimeout(()=>{
+
+avatar.style.opacity="1";
+
+},2000);
+
+let i=0;
+
+function type(){
+
+if(i<story.length){
+
+text.textContent+=story.charAt(i);
+
+i++;
+
+setTimeout(type,35);
+
+}else{
+
+document.title="Thank you for staying.";
+
+setTimeout(fade,10000);
+
+}
+
+}
+
+setTimeout(type,4000);
+
+function fade(){
+
+document.body.style.background="#000";
+
+avatar.style.opacity="0";
+
+text.style.opacity="0";
+
+}
+
+setTimeout(() => {
+    document.title = "Goodbye.";
+}, 25000);
+
+setTimeout(() => {
+    document.body.innerHTML = "";
+    document.body.style.background = "#000";
+}, 30000);
+
+</script>
+
+</body>
+
+</html>
