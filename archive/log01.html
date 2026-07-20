@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recovered Log #01</title>
+
+<style>
+body{
+    margin:0;
+    background:#050505;
+    color:#dcdcdc;
+    font-family:"IBM Plex Mono",monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.box{
+    width:90%;
+    max-width:900px;
+}
+
+pre{
+    white-space:pre-wrap;
+    line-height:1.8;
+    font-size:17px;
+}
+
+button{
+    margin-top:35px;
+    padding:12px 35px;
+    background:transparent;
+    border:1px solid white;
+    color:white;
+    cursor:pointer;
+    opacity:0;
+    transition:.3s;
+}
+
+button:hover{
+    background:white;
+    color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<pre id="log"></pre>
+
+<button id="next">Open next file</button>
+
+</div>
+
+<script>
+
+const text=`Recovered Log #01
+
+Player ID: UNKNOWN
+
+Display Name: UNKNOWN
+
+Last Seen: UNKNOWN
+
+Status: CONNECTED
+
+...
+
+No logout detected.
+
+...
+
+The avatar never left.
+
+The server disappeared first.`;
+
+const output=document.getElementById("log");
+const btn=document.getElementById("next");
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+output.textContent+=text.charAt(i);
+
+i++;
+
+setTimeout(type,28);
+
+}else{
+
+btn.style.opacity="1";
+
+}
+
+}
+
+setTimeout(type,1000);
+
+btn.onclick=()=>{
+
+location.href="log02.html";
+
+};
+
+</script>
+
+</body>
+</html>
