@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Recovered Log #02</title>
+
+<style>
+
+body{
+background:#000;
+color:white;
+font-family:"IBM Plex Mono",monospace;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+overflow:hidden;
+}
+
+#box{
+width:90%;
+max-width:900px;
+}
+
+#text{
+white-space:pre-wrap;
+line-height:1.8;
+font-size:18px;
+}
+
+button{
+margin-top:40px;
+padding:14px 35px;
+background:transparent;
+border:1px solid white;
+color:white;
+cursor:pointer;
+opacity:0;
+transition:.3s;
+}
+
+button:hover{
+background:white;
+color:black;
+}
+
+.red{
+color:#ff4040;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="box">
+
+<div id="text"></div>
+
+<button id="continue">Continue</button>
+
+</div>
+
+<script>
+
+const message=`Recovered Log #02
+
+The avatar remained online.
+
+No player joined.
+
+No player left.
+
+Server time stopped.
+
+...
+
+The butterflies never moved.
+
+The faces behind him were never accessories.
+
+They were players.
+
+Nobody remembers their usernames.
+
+...
+
+Someone tried to delete this file.
+
+Deletion failed.
+
+...
+
+If you're reading this...
+
+Stop looking for him.`;
+
+const text=document.getElementById("text");
+const button=document.getElementById("continue");
+
+let i=0;
+
+function write(){
+
+if(i<message.length){
+
+text.innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(write,30);
+
+}else{
+
+button.style.opacity="1";
+
+}
+
+}
+
+write();
+
+setTimeout(()=>{
+
+document.body.style.background="#080808";
+
+},4000);
+
+setTimeout(()=>{
+
+document.title="WHO ARE YOU?";
+
+},8000);
+
+button.onclick=()=>{
+
+location.href="final.html";
+
+};
+
+</script>
+
+</body>
+</html>
